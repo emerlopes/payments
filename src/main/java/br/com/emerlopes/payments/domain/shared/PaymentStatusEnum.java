@@ -2,6 +2,8 @@ package br.com.emerlopes.payments.domain.shared;
 
 import lombok.Getter;
 
+import java.util.Random;
+
 @Getter
 public enum PaymentStatusEnum {
     PENDING("PENDING"),
@@ -25,5 +27,11 @@ public enum PaymentStatusEnum {
             }
         }
         return null;
+    }
+
+    public static PaymentStatusEnum getRandomStatus() {
+        PaymentStatusEnum[] statuses = values();
+        int randomIndex = new Random().nextInt(statuses.length);
+        return statuses[randomIndex];
     }
 }

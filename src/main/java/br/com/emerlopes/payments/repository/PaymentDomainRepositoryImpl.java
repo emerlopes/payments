@@ -34,7 +34,7 @@ public class PaymentDomainRepositoryImpl implements PaymentDomainRepository {
                 .paymentDate(payment.getPaymentDate())
                 .amount(payment.getAmount())
                 .paymentDate(LocalDateTime.now())
-                .status(PaymentStatusEnum.APPROVED.getStatus())
+                .status(PaymentStatusEnum.getRandomStatus().getStatus())
                 .build();
 
         final var savedPayment = paymentRepository.save(paymentEntity);
